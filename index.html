@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Оформление заказа — 3D-печать кукольных подошв</title>
+<meta name="description" content="Заказ 3D-печати кукольных подошв: модель, цвет и количество пар в одном заказе." />
+<meta name="theme-color" content="#F4F3F8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chevron-up" viewBox="0 0 24 24"><path d="m6 15 6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 13 4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16.5 16.5 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15 6.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<main class="page">
+  <section class="card" id="formView" aria-labelledby="formTitle">
+    <header class="head">
+      <h1 id="formTitle">Оформление заказа</h1>
+      <p class="sub">Соберите заказ из нескольких позиций: модель, цвет и количество пар.</p>
+    </header>
+
+    <form id="orderForm" novalidate>
+      <div id="positions" class="positions"></div>
+
+      <button type="button" class="btn btn-outline" id="addPosition">
+        <svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg>
+        Добавить позицию
+      </button>
+
+      <button type="submit" class="btn btn-primary">Оформить заказ</button>
+
+      <p class="footnote">После отправки заказ получит номер, а менеджер — уведомление в Telegram.</p>
+    </form>
+  </section>
+
+  <section class="card success" id="successView" aria-labelledby="successTitle" hidden>
+    <div class="success-mark" aria-hidden="true">
+      <svg class="ic ic-check"><use href="#i-check"/></svg>
+    </div>
+
+    <header class="head">
+      <h1 id="successTitle">Заказ оформлен</h1>
+      <p class="sub">Менеджер получил уведомление в Telegram и свяжется с вами для подтверждения.</p>
+    </header>
+
+    <div class="num-box">
+      <div class="num-stack">
+        <span class="num-label">Номер заказа</span>
+        <strong class="num-value" id="orderNumber">3D-2481</strong>
+      </div>
+      <button type="button" class="copy-btn" id="copyOrder" aria-label="Скопировать номер заказа">
+        <svg class="ic"><use href="#i-copy"/></svg>
+      </button>
+    </div>
+
+    <div class="details">
+      <h2 class="details-title">Состав заказа</h2>
+      <div id="orderItems" class="order-items"></div>
+      <div class="order-total">
+        <span>Итого</span>
+        <strong id="orderTotal">3 пары</strong>
+      </div>
+    </div>
+
+    <div class="status-line">
+      <span class="badge"><span class="dot"></span>Принят</span>
+      <span class="status-note">уведомление отправлено</span>
+    </div>
+
+    <button type="button" class="btn btn-secondary" id="backToForm">Вернуться к форме</button>
+
+    <p class="footnote">Номер заказа понадобится, чтобы уточнить статус печати.</p>
+  </section>
+</main>
+
+<script src="app.js" defer></script>
+</body>
+</html>
