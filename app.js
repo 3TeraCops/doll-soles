@@ -26,11 +26,14 @@ const MODELS = [
 ];
 
 const COLORS = [
-  { id: "skin", name: "Телесный", hex: "#E8C4A8" },
-  { id: "black", name: "Чёрный", hex: "#1B1B22" },
   { id: "white", name: "Белый", hex: "#F3F2F7" },
-  { id: "gray", name: "Серый", hex: "#A8A6B4" },
-  { id: "clear", name: "Полупрозрачный", hex: "#DAD7E6", opacity: 0.55 }
+  { id: "black", name: "Чёрный", hex: "#1B1B22" },
+  { id: "dark-brown", name: "Тёмно-коричневый", hex: "#4A3226" },
+  { id: "brown", name: "Коричневый", hex: "#7B5233" },
+  { id: "ginger", name: "Рыжий", hex: "#C4621F" },
+  { id: "beige", name: "Бежевый", hex: "#E6D2B5" },
+  { id: "gray-beige", name: "Серо-бежевый", hex: "#C9BFAE" },
+  { id: "rainbow", name: "Радужный", gradient: "linear-gradient(135deg, #E4572E 0%, #F2B134 22%, #7FB069 44%, #4C9BE8 68%, #7B4FD1 88%, #D4518C 100%)" }
 ];
 
 const TELEGRAM_ENDPOINT = "https://doll-soles-order.netlify.app/.netlify/functions/order";
@@ -287,8 +290,13 @@ function createPositionView(state, index) {
     chip.setAttribute("role", "radio");
     chip.setAttribute("aria-checked", String(color.id === state.colorId));
     chip.innerHTML = '<span class="swatch"></span><span class="chip-label"></span>';
-    chip.querySelector(".swatch").style.background = color.hex;
-    if (color.opacity) chip.querySelector(".swatch").style.opacity = String(color.opacity);
+    const swatch = chip.querySelector(".swatch");
+    if (color.gradient) {
+      swatch.style.background = color.gradient;
+    } else {
+      swatch.style.background = color.hex;
+      if (color.opacity) swatch.style.opacity = String(color.opacity);
+    }
     chip.querySelector(".chip-label").textContent = color.name;
     chip.addEventListener("click", () => {
       state.colorId = color.id;
@@ -380,7 +388,7 @@ function resetPositions() {
   positions = [];
   positionViews.length = 0;
   positionsEl.textContent = "";
-  addPosition({ modelId: MODELS[0].id, colorId: "skin", pairs: 1 });
+  addPosition({ modelId: MODELS[0].id, colorId: COLORS[0].id, pairs: 1 });
 }
 
 /* ---------------- order ---------------- */
@@ -489,7 +497,7 @@ document.getElementById("orderForm").addEventListener("submit", (event) => {
   showSuccess(order);
 });
 
-addBtn.addEventListener("click", () => addPosition({ modelId: MODELS[0].id, colorId: "skin", pairs: 1 }, true));
+addBtn.addEventListener("click", () => addPosition({ modelId: MODELS[0].id, colorId: COLORS[0].id, pairs: 1 }, true));
 
 document.getElementById("backToForm").addEventListener("click", showForm);
 
