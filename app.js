@@ -23,7 +23,7 @@ const COLORS = [
   { id: "clear", name: "Полупрозрачный", hex: "#DAD7E6", opacity: 0.55 }
 ];
 
-const TELEGRAM_ENDPOINT = ""; // TODO: адрес бэкенда, который шлёт уведомление в Telegram
+const TELEGRAM_ENDPOINT = "https://doll-soles-order.netlify.app/.netlify/functions/order";
 const ORDER_SEQ_KEY = "dollsoles.orderSeq";
 const ORDER_SEQ_START = 2480;
 
