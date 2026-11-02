@@ -3,16 +3,26 @@
    Уведомление в Telegram подключается позже (см. notifyOrder). */
 
 const MODELS = [
-  { id: "classic", name: "Классическая", desc: "каблук 4–6 см" },
-  { id: "ballet", name: "Балетная", desc: "плоская, без каблука" },
-  { id: "platform", name: "Платформа", desc: "утолщённая подошва" },
-  { id: "wineglass", name: "Каблук-рюмочка", desc: "5–7 см" },
-  { id: "wedge", name: "Танкетка", desc: "плавный подъём" },
-  { id: "insole", name: "Стелька с супинатором", desc: "анатомическая" },
-  { id: "sandal", name: "Сандалетка", desc: "тонкие ремешки" },
-  { id: "boot", name: "Ботинок", desc: "закрытая пятка" },
-  { id: "sneaker", name: "Кроссовочная", desc: "плоский ход" },
-  { id: "mini", name: "Для кукол 1/4", desc: "уменьшенная" }
+  { id: "isaev-sneakers", name: "Кроссы Исаева" },
+  { id: "sole-101", name: "Подошва 101%", desc: "туфли, колодка 95%" },
+  { id: "sole-vp-101-upd", name: "Подошва ВП 101% Upd", desc: "туфли, колодка 95%" },
+  { id: "sole-vp-101", name: "Подошва ВП 101%", desc: "туфли, колодка 95%" },
+  { id: "sole-protektor-106-upd", name: "Высокий протектор 106% Upd", desc: "ботинки" },
+  { id: "sole-protektor-106", name: "Высокий протектор 106%", desc: "ботинки" },
+  { id: "sole-original", name: "Подошва оригинал", desc: "босоножки" },
+  { id: "sole-sandal-103-upd", name: "Подошвы босоножки 103% UPD" },
+  { id: "sole-sandal-103", name: "Подошвы босоножки 103%" },
+  { id: "sole-boots-109-upd", name: "Подошвы ботинки 109% UPD" },
+  { id: "sole-boots-109", name: "Подошвы ботинки 109%" },
+  { id: "sole-vp-udp-mini", name: "Подошвы ВП UDP mini" },
+  { id: "sole-new-last-shkarova", name: "Подошвы под новые колодки (Шкарова)" },
+  { id: "sole-new-last-vp-upd-shkarova", name: "Подошвы под новые колодки ВП Upd (Шкарова)" },
+  { id: "sole-new-last-vp-shkarova", name: "Подошвы под новые колодки ВП (Шкарова)" },
+  { id: "sole-shoes-105-3-upd", name: "Подошвы туфли 105% + 3% UPD" },
+  { id: "sole-shoes-105-upd", name: "Подошвы туфли 105% UPD" },
+  { id: "sole-shoes-105", name: "Подошвы туфли 105%" },
+  { id: "last-95", name: "Колодка 95%", desc: "туфли" },
+  { id: "last-100", name: "Колодка 100%", desc: "ботинки" }
 ];
 
 const COLORS = [
