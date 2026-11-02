@@ -380,7 +380,7 @@ function resetPositions() {
   positions = [];
   positionViews.length = 0;
   positionsEl.textContent = "";
-  addPosition({ modelId: "classic", colorId: "skin", pairs: 1 });
+  addPosition({ modelId: MODELS[0].id, colorId: "skin", pairs: 1 });
 }
 
 /* ---------------- order ---------------- */
@@ -489,7 +489,7 @@ document.getElementById("orderForm").addEventListener("submit", (event) => {
   showSuccess(order);
 });
 
-addBtn.addEventListener("click", () => addPosition({ modelId: "classic", colorId: "skin", pairs: 1 }, true));
+addBtn.addEventListener("click", () => addPosition({ modelId: MODELS[0].id, colorId: "skin", pairs: 1 }, true));
 
 document.getElementById("backToForm").addEventListener("click", showForm);
 
