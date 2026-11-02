@@ -33,7 +33,8 @@ const COLORS = [
   { id: "ginger", name: "Рыжий", hex: "#C4621F" },
   { id: "beige", name: "Бежевый", hex: "#E6D2B5" },
   { id: "gray-beige", name: "Серо-бежевый", hex: "#C9BFAE" },
-  { id: "rainbow", name: "Радужный", gradient: "linear-gradient(135deg, #E4572E 0%, #F2B134 22%, #7FB069 44%, #4C9BE8 68%, #7B4FD1 88%, #D4518C 100%)" }
+  { id: "rainbow", name: "Радужный", gradient: "linear-gradient(135deg, #E4572E 0%, #F2B134 22%, #7FB069 44%, #4C9BE8 68%, #7B4FD1 88%, #D4518C 100%)" },
+  { id: "any", name: "Любой (цвет не важен)", striped: "repeating-linear-gradient(45deg, #C9C5D8 0 3px, #F1EDFF 3px 6px)" }
 ];
 
 const TELEGRAM_ENDPOINT = "https://doll-soles-order.netlify.app/.netlify/functions/order";
@@ -293,6 +294,8 @@ function createPositionView(state, index) {
     const swatch = chip.querySelector(".swatch");
     if (color.gradient) {
       swatch.style.background = color.gradient;
+    } else if (color.striped) {
+      swatch.style.background = color.striped;
     } else {
       swatch.style.background = color.hex;
       if (color.opacity) swatch.style.opacity = String(color.opacity);
