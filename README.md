@@ -12,16 +12,15 @@
 - Копирование номера заказа.
 - Адаптив: мобильный (до 640 px) и десктопный вид.
 
-## Что подключить дальше
+## Уведомление в Telegram
 
-Уведомление в Telegram: в `app.js` задайте адрес бэкенда
+Токен бота нельзя держать во фронтенде, поэтому заказ уходит на серверную функцию:
 
-```js
-const TELEGRAM_ENDPOINT = ""; // POST { number, createdAt, positions, totalPairs }
-```
+- `app.js` → `TELEGRAM_ENDPOINT = "https://doll-soles-order.netlify.app/.netlify/functions/order"`
+- Функция: `../telegram/netlify/functions/order.js` (Netlify Functions)
+- Переменные окружения на Netlify: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `ALLOWED_ORIGIN`
 
-Токен бота нельзя держать во фронтенде — нужен прокси (Cloudflare Worker, Vercel
-Function, Netlify Function), который принимает JSON и вызывает `sendMessage`.
+Если функция недоступна, заказ всё равно оформляется — ошибка только пишется в консоль.
 
 ## Локальный запуск
 
